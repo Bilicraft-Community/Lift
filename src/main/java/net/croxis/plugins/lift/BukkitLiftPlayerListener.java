@@ -32,10 +32,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.inventory.InventoryPickupItemEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerItemHeldEvent;
-import org.bukkit.event.player.PlayerKickEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -211,6 +208,14 @@ public class BukkitLiftPlayerListener implements Listener{
 		sign.update();
 		plugin.logDebug("Completed sign update");
 
+	}
+
+	@EventHandler
+	public void onPlayerToggleFlight(PlayerToggleFlightEvent event){
+		if(BukkitElevatorManager.isInALift(event.getPlayer())) {
+			BukkitElevatorManager.removePlayer(event.getPlayer());
+			event.getPlayer().setFlying(false);
+		}
 	}
 	
 	@EventHandler

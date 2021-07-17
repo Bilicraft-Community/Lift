@@ -308,6 +308,9 @@ public class BukkitElevatorManager extends ElevatorManager{
 
     public static void removePlayer(Player player, Iterator<Entity> passengers){
         plugin.logDebug("Removing player " + player.getName() + " from El: " + bukkitElevators.toString());
+        player.setGravity(true);
+        player.setAllowFlight(false);
+        player.setFlying(false);
         for (BukkitElevator bukkitElevator : bukkitElevators){
             plugin.logDebug("Scanning lift");
             if (bukkitElevator.isInLift(player)){
@@ -387,6 +390,8 @@ public class BukkitElevatorManager extends ElevatorManager{
         // Restores a player's previous stats.
         plugin.logDebug("[Manager][restorePlayer] " + player.getDisplayName());
         player.setGravity(true);
+        player.setAllowFlight(false);
+        player.setFlying(false);
         fallers.remove(player);
         if (fliers.contains(player)){
             fliers.remove(player);

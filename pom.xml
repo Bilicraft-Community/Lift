@@ -66,41 +66,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                     <target>1.8</target>
                 </configuration>
             </plugin>
-			<plugin>
-				<groupId>com.mycila.maven-license-plugin</groupId>
-				<artifactId>maven-license-plugin</artifactId>
-				<version>1.10.b1</version>
-				<executions>
-					<execution>
-						<phase>clean</phase>
-						<goals>
-						<goal>format</goal>
-						</goals>
-						</execution>
-				</executions>
-				<configuration>
-					<quiet>false</quiet>
-					<encoding>UTF-8</encoding>
-					<strictCheck>true</strictCheck>
-					<header>${basedir}/HEADER.txt</header>
-					<keywords>
-					<keyword>${project.name}</keyword>
-					<keyword>license</keyword>
-					</keywords>
-					<mapping>
-					<java>SLASHSTAR_STYLE</java>
-					</mapping>
-					<properties>
-					<name>${project.name}</name>
-					<url>${project.organization.url}</url>
-					<copyright>Copyright (c) ${project.inceptionYear}-2013, ${project.organization.name}</copyright>
-					</properties>
-					<includes>
-					<include>src/main/java/**</include>
-					<include>src/test/java/**</include>
-					</includes>
-				</configuration>
-			</plugin>
         </plugins>
         <pluginManagement>
         	<plugins>
@@ -149,11 +114,5 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
             <artifactId>nocheatplus</artifactId>
             <version>3.16.0-RC</version>
         </dependency>
-        <dependency>
-			<groupId>org.spongepowered</groupId>
-			<artifactId>spongeapi</artifactId>
-			<version>${spongeVersion}</version>
-			<scope>provided</scope>
-		</dependency>
     </dependencies>
 </project>
